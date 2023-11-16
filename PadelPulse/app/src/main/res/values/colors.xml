@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Timberwolf">#FFDDD5D0</color>
+    <color name="Silver">#FFCFC0BD</color>
+    <color name="Ash_Gray">#FFB8B8AA</color>
+    <color name="Battleship_Gray">#FF7F9183</color>
+    <color name="Feldgrau">#FF586F6B</color>
+</resources>
