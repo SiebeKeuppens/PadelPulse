@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "858581429301",
+    "project_id": "sk-padelpulse",
+    "storage_bucket": "sk-padelpulse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858581429301:android:841f95fedeef7295aed57c",
+        "android_client_info": {
+          "package_name": "com.example.padelpulse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgBfDgm4GQ8GDryqAxE54z8oz6B9umnMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
