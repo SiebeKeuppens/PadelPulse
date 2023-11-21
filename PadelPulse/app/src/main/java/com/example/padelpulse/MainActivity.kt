@@ -25,18 +25,8 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         })
-
-        /*binding.LoginButton.setOnClickListener(View.OnClickListener {
-            intent = Intent(this, LoginActivity::class.java)})
-        }*/
-    }
-
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            //Log in automatically (ex: A user just registerd and is redirected to the main page)
-        }
+        binding.LoginButton.setOnClickListener(View.OnClickListener {
+            intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)})
     }
 }

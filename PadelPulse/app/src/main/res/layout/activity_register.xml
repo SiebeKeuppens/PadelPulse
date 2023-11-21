@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@drawable/backgroundicon"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-41dp">
 
     <Button
-        android:id="@+id/BackButton"
+        android:id="@+id/RegisterBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="31dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/TextName"
+        android:id="@+id/R_TextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
@@ -42,10 +42,10 @@
         android:text="Password"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/R_TextEmail" />
 
     <EditText
-        android:id="@+id/TextEmail"
+        android:id="@+id/R_TextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -65,7 +65,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/LabelName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextName" />
+        app:layout_constraintTop_toBottomOf="@+id/R_TextName" />
 
     <TextView
         android:id="@+id/LabelName"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LabelRegister" />
 
     <EditText
-        android:id="@+id/TextPassword"
+        android:id="@+id/R_TextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LabelPassword" />
 
     <Button
-        android:id="@+id/SubmitButton"
+        android:id="@+id/RegisterSubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
@@ -110,6 +110,6 @@
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BackButton" />
+        app:layout_constraintTop_toBottomOf="@+id/RegisterBackButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
