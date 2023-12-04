@@ -1,7 +1,10 @@
 package com.example.padelpulse
 
 import android.app.Activity
+import android.content.ContentValues.TAG
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -29,6 +32,15 @@ class EditProfileActivity : AppCompatActivity() {
 
         binding.EditSubmitButton.setOnClickListener {
 
+            val user = Firebase.auth.currentUser
+            val profileUpdates = userProfileChangeRequest {
+                displayName = binding.ETextName.text.toString()
+            }
+            val credentials = EmailAuthProvider.getCredential(
+                user!!.email.toString(),
+                binding.ETextOldPassword.text.toString()
+            )
+
             if (binding.ETextOldPassword.text.toString().isEmpty()) {
                 Toast.makeText(
                     baseContext,
@@ -38,24 +50,23 @@ class EditProfileActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val user = Firebase.auth.currentUser
-            val credentials = EmailAuthProvider.getCredential(
-                user!!.email!!,
-                binding.ETextOldPassword.text.toString()
-            )
-            user.reauthenticate(credentials)
+            user!!.reauthenticate(credentials)
                 .addOnCompleteListener {
-                    if (it.isSuccessful) {
+                    user.updateProfile(profileUpdates)
+
+                    /*if (user.email != binding.ETextEmail.text.toString()) {
+                        Log.d(TAG, "Email: ${user.email}")
                         user.verifyBeforeUpdateEmail(binding.ETextEmail.text.toString())
-                        user.updateProfile(
-                            userProfileChangeRequest {
-                                displayName = binding.ETextName.text.toString()
-                            }
-                        )
+                        Log.d(TAG, "New? Email: ${user.email}")
+                    }*/
+
+
+                    if (binding.ETextPassword.text.toString().isNotEmpty() && binding.ETextPassword.text.toString() != binding.ETextOldPassword.text.toString()) {
                         user.updatePassword(binding.ETextPassword.text.toString())
-                        Toast.makeText(baseContext, "Change Successful", Toast.LENGTH_SHORT).show()
-                        finish()
                     }
+
+                    Toast.makeText(baseContext, "Change Successful", Toast.LENGTH_SHORT).show()
+                    finish()
                 }
         }
     }
@@ -65,7 +76,7 @@ class EditProfileActivity : AppCompatActivity() {
         //Fill in the email and username fields
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            binding.ETextEmail.setText(currentUser.email)
+            //binding.ETextEmail.setText(currentUser.email)
             binding.ETextName.setText(currentUser.displayName)
         }
     }

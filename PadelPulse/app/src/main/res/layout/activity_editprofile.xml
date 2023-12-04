@@ -17,83 +17,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/E_TextPassword"
+    <TextView
+        android:id="@+id/LabelEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
-        android:ems="10"
-        android:fontFamily="@font/droid_sans_bold"
-        android:inputType="textPassword"
-        android:textAllCaps="false"
+        android:text="New Display Name"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/E_TextOldPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/E_TextName"
+        app:layout_constraintStart_toStartOf="@+id/E_TextName" />
 
     <EditText
         android:id="@+id/E_TextOldPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginTop="69dp"
         android:ems="10"
         android:fontFamily="@font/droid_sans_bold"
         android:inputType="textPassword"
         android:textAllCaps="false"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/EditSubmitButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/E_TextEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
-        android:ems="10"
-        android:fontFamily="@font/droid_sans_bold"
-        android:inputType="textEmailAddress"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/E_TextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/LabelEditEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="84dp"
-        android:text="New E-Mail"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/LabelEditPassword"
-        app:layout_constraintStart_toStartOf="@+id/E_TextEmail" />
-
-    <TextView
-        android:id="@+id/LabelEditName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="88dp"
-        android:text="New Display Name"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/LabelEditEmail"
-        app:layout_constraintStart_toStartOf="@+id/E_TextName" />
-
-    <TextView
-        android:id="@+id/LabelEditPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="88dp"
-        android:text="New Password"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/LabelOldPassword"
-        app:layout_constraintStart_toStartOf="@+id/E_TextPassword" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/E_TextPassword" />
 
     <TextView
         android:id="@+id/LabelOldPassword"
@@ -107,29 +52,52 @@
         app:layout_constraintStart_toStartOf="@+id/E_TextOldPassword" />
 
     <EditText
+        android:id="@+id/E_TextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:fontFamily="@font/droid_sans_bold"
+        android:inputType="textPassword"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/E_TextName" />
+
+    <EditText
         android:id="@+id/E_TextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
         android:ems="10"
         android:fontFamily="@font/droid_sans_bold"
         android:inputType="text"
         android:textAllCaps="false"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/E_TextEmail"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.396" />
+
+    <TextView
+        android:id="@+id/LabelEditPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:text="New Password"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/E_TextPassword"
+        app:layout_constraintStart_toStartOf="@+id/E_TextPassword" />
 
     <TextView
         android:id="@+id/LabelEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
         android:layout_marginTop="39dp"
         android:text="Edit Your Credentials"
         android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditBackButton" />
 
