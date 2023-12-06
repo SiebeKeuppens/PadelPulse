@@ -6,9 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -16,7 +17,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.getValue
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
 
 class CourtsFragment : Fragment(R.layout.fragment_courts) {
     private lateinit var database: DatabaseReference
@@ -27,25 +30,27 @@ class CourtsFragment : Fragment(R.layout.fragment_courts) {
 
         database = Firebase.database.reference
 
-        val courtLayout: LinearLayout = view.findViewById(R.id.court_list)
-        val textView = TextView(this.context)
-        textView.text = "I am added dynamically to the view"
-
-
-        var courtname: String?
-        val courtNameView = TextView(this.context)
-
+        val rvCourts: RecyclerView = view.findViewById(R.id.rvCourts)
+        //val details: TextView = rvCourts.findViewById(R.id.CourtDetails)
+        val courts = mutableListOf<Court>()
+        val courtAdapter = CourtAdapter(courts)
+        rvCourts.adapter = courtAdapter
+        rvCourts.layoutManager = LinearLayoutManager(this.context)
 
         val courtListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-
                 val court = dataSnapshot.child("Courts")
                 for (courtSnapshot in court.children) {
-                    var courtname = courtSnapshot.child("name").getValue<String>()
-                    Log.d(TAG, "Court name: $courtname")
-                    courtNameView.text = courtname
-                    courtLayout.addView(courtNameView)
+                   val courtToAdd = Court()
+                    courtToAdd.createCourtFromSnapshot(courtSnapshot)
+                    Log.d(TAG, "Created Court | Courtname: ${courtToAdd.name}, Booked timeslots: ${courtToAdd.booked_timeslots}")
+
+                    //details.text = "Courtname: ${courtToAdd.name}, Booked timeslots: ${courtToAdd.booked_timeslots}"
+
+                    courts.add(courtToAdd)
+
                 }
+                courtAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
