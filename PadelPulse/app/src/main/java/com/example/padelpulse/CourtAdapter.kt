@@ -1,10 +1,12 @@
 package com.example.padelpulse
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 class CourtAdapter (private val mCourts:List<Court>) : RecyclerView.Adapter<CourtAdapter.ViewHolder>() {
@@ -13,6 +15,14 @@ class CourtAdapter (private val mCourts:List<Court>) : RecyclerView.Adapter<Cour
         val nameTextView = itemView.findViewById<TextView>(R.id.court_name)
         val bookButton = itemView.findViewById<Button>(R.id.book_button)
         val detailsTextview = itemView.findViewById<TextView>(R.id.CourtDetails)
+
+        init {
+            bookButton.setOnClickListener(View.OnClickListener {
+                val intent = Intent(itemView.context, BookingActivity::class.java)
+                intent.putExtra("courtName", nameTextView.text)
+                startActivity(itemView.context, intent, null)
+            })
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourtAdapter.ViewHolder {

@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
     val fragment_version = "1.6.2"
 
     implementation("androidx.core:core-ktx:1.9.0")

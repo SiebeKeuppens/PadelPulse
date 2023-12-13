@@ -9,8 +9,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
-//TODO: Look into Firebase Realtime Database (courts)
+//TODO: Add a way to view open matches
+//TODO: Add a way to join a match
+//TODO: Maybe flesh out the profile page a bit more
 
 class UserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserBinding
@@ -36,14 +37,12 @@ class UserActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null)
         val currentUser = auth.currentUser
         if (currentUser != null) {
             binding.UsernameText.text = currentUser.displayName
-        } //Else, redirect to login page
+        }
         else {
             finish()
         }
-
     }
 }

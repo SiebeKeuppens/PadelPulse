@@ -31,7 +31,6 @@ class CourtsFragment : Fragment(R.layout.fragment_courts) {
         database = Firebase.database.reference
 
         val rvCourts: RecyclerView = view.findViewById(R.id.rvCourts)
-        //val details: TextView = rvCourts.findViewById(R.id.CourtDetails)
         val courts = mutableListOf<Court>()
         val courtAdapter = CourtAdapter(courts)
         rvCourts.adapter = courtAdapter
@@ -40,15 +39,12 @@ class CourtsFragment : Fragment(R.layout.fragment_courts) {
         val courtListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val court = dataSnapshot.child("Courts")
+                courts.clear()
                 for (courtSnapshot in court.children) {
                    val courtToAdd = Court()
                     courtToAdd.createCourtFromSnapshot(courtSnapshot)
                     Log.d(TAG, "Created Court | Courtname: ${courtToAdd.name}, Booked timeslots: ${courtToAdd.booked_timeslots}")
-
-                    //details.text = "Courtname: ${courtToAdd.name}, Booked timeslots: ${courtToAdd.booked_timeslots}"
-
                     courts.add(courtToAdd)
-
                 }
                 courtAdapter.notifyDataSetChanged()
             }

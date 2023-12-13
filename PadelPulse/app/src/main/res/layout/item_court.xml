@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="Create Match"
+            android:text="Book Timeslot"
             android:textSize="24sp" />
 
     </LinearLayout>
