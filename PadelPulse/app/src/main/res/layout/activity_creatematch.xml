@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundicon"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="30dp">
+
+    <Button
+        android:id="@+id/CreateMatchBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Back"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Players:"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CreateMatchBackButton" />
+
+    <TextView
+        android:id="@+id/VersusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="VS."
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPlayer2Button" />
+
+    <TextView
+        android:id="@+id/Player1Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="PlayerName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/AddPlayer2Button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/Player2Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="PlayerName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/AddPlayer2Button"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Player1Name" />
+
+    <TextView
+        android:id="@+id/Player3Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:text="PlayerName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/AddPlayer3Button"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VersusLabel" />
+
+    <TextView
+        android:id="@+id/Player4Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:text="PlayerName"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/AddPlayer4Button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Player3Name" />
+
+    <TextView
+        android:id="@+id/YouLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:text="(YOU)"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Player1Name"
+        app:layout_constraintStart_toStartOf="@+id/AddPlayer2Button" />
+
+    <Button
+        android:id="@+id/AddPlayer2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Player"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Player2Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Player1Name" />
+
+    <Button
+        android:id="@+id/AddPlayer3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Player"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Player3Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Player3Name" />
+
+    <Button
+        android:id="@+id/AddPlayer4Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Player"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Player4Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Player4Name" />
+
+    <Button
+        android:id="@+id/BookingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="53dp"
+        android:text="Continue To Booking"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

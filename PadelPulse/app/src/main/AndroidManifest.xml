@@ -36,6 +36,12 @@
         <activity android:name=".BookingActivity"
             android:exported="true">
         </activity>
+        <activity android:name=".MatchActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".CreateMatchActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

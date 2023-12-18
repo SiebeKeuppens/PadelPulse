@@ -33,6 +33,11 @@ class UserActivity : AppCompatActivity() {
             intent = Intent(this, EditProfileActivity::class.java)
             startActivity(intent)
         })
+
+        binding.MatchButton.setOnClickListener(View.OnClickListener {
+            intent = Intent(this, MatchActivity::class.java)
+            startActivity(intent)
+        })
     }
 
     public override fun onStart() {
