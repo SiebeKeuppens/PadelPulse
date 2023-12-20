@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 class CourtAdapter (private val mCourts:List<Court>) : RecyclerView.Adapter<CourtAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameTextView = itemView.findViewById<TextView>(R.id.court_name)
-        val bookButton = itemView.findViewById<Button>(R.id.book_button)
+        val nameTextView = itemView.findViewById<TextView>(R.id.Court_name)
+        val bookButton = itemView.findViewById<Button>(R.id.Book_button)
         val detailsTextview = itemView.findViewById<TextView>(R.id.CourtDetails)
 
         init {
@@ -35,7 +35,7 @@ class CourtAdapter (private val mCourts:List<Court>) : RecyclerView.Adapter<Cour
     override fun onBindViewHolder(viewHolder: CourtAdapter.ViewHolder, position: Int) {
         val court: Court = mCourts.get(position)
         val textView = viewHolder.nameTextView
-        textView.setText(court.name)
+        textView.text = court.name
         val details = viewHolder.detailsTextview
         details.text = court.showBookedTimeslots()
     }

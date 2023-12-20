@@ -2,8 +2,6 @@ package com.example.padelpulse
 
 import android.content.ContentValues.TAG
 import android.util.Log
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -46,12 +44,17 @@ class Court {
     }
 
     fun bookTimeSlot(startTime: String, date: String):Boolean {
-        if (isTimeslotAvailable(startTime, date)) {
+        val formattedStartTime = if (startTime.length < 5) {
+            "${startTime.substring(0, 3)}0${startTime.substring(3)}"
+        } else {
+            startTime
+        }
+        if (isTimeslotAvailable(formattedStartTime, date)) {
             val slot = TimeSlot()
-            slot.startTime = LocalTime.parse(startTime)
+            slot.startTime = LocalTime.parse(formattedStartTime)
             slot.date = LocalDate.parse(date)
             slot.endTime = slot.startTime.plusMinutes(90)
-            slot.players += Firebase.auth.currentUser?.uid.toString()
+            slot.players += Firebase.auth.currentUser?.displayName.toString()
             booked_timeslots += slot
 
             val database = Firebase.database
@@ -103,12 +106,16 @@ class Court {
     private fun createTimeslotFromSnapshot(snapshot: DataSnapshot): List<TimeSlot> {
         val timeslots: MutableList<TimeSlot> = mutableListOf()
         for (timeslotSnapshot in snapshot.children) {
-            val startTime = timeslotSnapshot.child("startTimeString").value
-            val endTime = timeslotSnapshot.child("endTimeString").value
-            val date = timeslotSnapshot.child("dateString").value
-            val players: MutableList<String> = mutableListOf()
-            players += timeslotSnapshot.child("players").value.toString()
-            val timeSlot = TimeSlot(startTime.toString(), date.toString(), players)
+            val startTime = timeslotSnapshot.child("startTimeString").value?.toString() ?: "00:00"
+            val endTime = timeslotSnapshot.child("endTimeString").value?.toString() ?: "00:00"
+            val date = timeslotSnapshot.child("dateString").value?.toString() ?: "1970-01-01"
+            val playersSnapshot = timeslotSnapshot.child("players")
+            var players: MutableList<String> = mutableListOf()
+            for (person in playersSnapshot.children) {
+                var player = person.value.toString()
+                players += player
+            }
+            var timeSlot = TimeSlot(startTime, date, players)
             timeslots += timeSlot
         }
         return timeslots
@@ -159,4 +166,12 @@ class Court {
                 dateString = value.format(DateTimeFormatter.ISO_LOCAL_DATE)
             }
     }
+
+    data class IndexedTimeSlot(
+        val timeSlot: TimeSlot,
+        val courtName: String,
+        @get:Exclude
+        @set:Exclude var timeslotIndex: Int
+
+    )
 }

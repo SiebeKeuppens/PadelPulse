@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvmatches"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
@@ -39,8 +39,8 @@
         android:layout_marginBottom="1dp"
         android:text="Open Matches:"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/rvmatches"
+        app:layout_constraintStart_toStartOf="@+id/rvmatches"
         app:layout_constraintTop_toBottomOf="@+id/MatchBackButton" />
 
     <Button
@@ -53,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/rvmatches" />
 
     <TextView
         android:id="@+id/textView9"

@@ -20,7 +20,9 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
     }
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
-        var time = LocalTime.parse("$hourOfDay:$minute")
+        val formattedHour = String.format("%02d", hourOfDay)
+        val formattedMinute = String.format("%02d", minute)
+        var time = LocalTime.parse("$formattedHour:$formattedMinute")
         val bookingActivity = activity as BookingActivity
         bookingActivity.setBookingTime(time)
     }
