@@ -81,7 +81,6 @@ class BookingActivity : AppCompatActivity() {
                 }
                 callback(courts.find { it.name == courtName })
             }
-
             override fun onCancelled(databaseError: DatabaseError) {}
         }
         database.addListenerForSingleValueEvent(courtListener)
